@@ -77,7 +77,7 @@ jobs:
       uses: softprops/action-gh-release@v1
       with:
         files: ./release/*
-        tag_name: ${{ steps.determine_version.outputs.version }}
+        tag_name: ${{ github.run_id }}
         draft: false
         prerelease: false
       env:
