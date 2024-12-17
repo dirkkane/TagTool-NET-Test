@@ -68,15 +68,10 @@ jobs:
       with:
         path: ./artifacts
   
-    - name: Prepare Combined Artifacts
-      run: |
-        mkdir release
-        mv artifacts/* release/
-  
     - name: Create Combined Release
       uses: softprops/action-gh-release@v1
       with:
-        files: ./release/*
+        files: ./artifacts/*
         tag_name: ${{ github.run_id }}
         draft: false
         prerelease: false
