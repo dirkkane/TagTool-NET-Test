@@ -61,17 +61,19 @@ jobs:
 
   create-release:
     needs: build-branch
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
     - name: Download Artifacts
       uses: actions/download-artifact@v3
       with:
         path: ./artifacts
-
-    - name: Create Combined Release
+  
+    - name: Prepare Combined Artifacts
       run: |
         mkdir release
         mv artifacts/* release/
+  
+    - name: Create Combined Release
       uses: softprops/action-gh-release@v1
       with:
         files: ./release/*
