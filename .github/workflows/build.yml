@@ -61,7 +61,7 @@ jobs:
 
   create-release:
     needs: build-branch
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
     - name: Download Artifacts
       uses: actions/download-artifact@v3
